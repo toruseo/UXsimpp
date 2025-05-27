@@ -15,6 +15,9 @@ Thanks to pybind11, the C++ engine is fully accessible from Python codes without
 **This is alpha stage.**
 **The codes and docs are work in progress.**
 
+If you are interested, please see:
+- Tutorial using [Jupyter Notebook](https://github.com/toruseo/UXsimpp/blob/main/demos_and_examples/demo01_basic.ipynb)
+
 ## Main Features
 
 - Simple, fast, lightweight, and easy-to-use Python package for modern standard models of dynamic network traffic flow
