@@ -118,6 +118,13 @@ Stats:
 
 ArXiv preprint will be added.
 
+The simulation model is almost the same to that of [UXsim](https://github.com/toruseo/UXsim).
+If you are interested in, please refer to its documents:
+- https://toruseo.jp/UXsim/docs/
+- Toru Seo. [UXsim: lightweight mesoscopic traffic flow simulator in pure Python](https://doi.org/10.21105/joss.07617). Journal of Open Source Software, Vol. 10, No. 106, p. 7617, 2025.
+- Toru Seo. Macroscopic Traffic Flow Simulation: Fundamental Mathematical Theory and Python Implementation. Corona Publishing Co., Ltd., 2023.
+- Toru Seo. [UXsim: An open source macroscopic and mesoscopic traffic simulator in Python-a technical overview](http://dx.doi.org/10.48550/arXiv.2309.17114). arXiv preprint arXiv: 2309.17114, 2023.
+
 ## Terms of Use & License
 
 MIT License
