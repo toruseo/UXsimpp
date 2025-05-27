@@ -1,3 +1,5 @@
+[![PyPi](https://img.shields.io/pypi/v/uxsimpp.svg)](https://pypi.python.org/pypi/uxsimpp)
+
 # UXsim++: Fast and simple traffic simulator for Python
 
 **UXsim++** (or **uxsimpp**) is a free, open-source mesoscopic network traffic flow simulator for Python. 
@@ -29,7 +31,9 @@ To be added
 
 ## Install
 
-To be added
+```bash
+pip install uxsimpp
+```
 
 ## Getting Started
 
