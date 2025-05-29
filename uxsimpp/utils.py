@@ -56,11 +56,17 @@ def catch_exceptions_and_warn(warning_msg=""):
 
 def lange(l):
     """
-    Super lazy function for abbreviating range(len(l))
+    Super lazy function for abbreviating range(len(l)).
 
     Parameters
-    ----
+    ----------
     l : list
+        List to get the range of length for.
+
+    Returns
+    -------
+    range
+        Range object from 0 to len(l).
     """
     return range(len(l))
 

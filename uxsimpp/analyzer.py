@@ -26,6 +26,18 @@ from .utils import *
 def gen_unique_color(integer_id, rgb_tuple=False):
     """
     Generate a unique color code in the format '#xxxxxx' for a given integer ID.
+
+    Parameters
+    ----------
+    integer_id : int
+        Integer ID to generate color for.
+    rgb_tuple : bool, optional
+        If True, return RGB tuple instead of hex string. Default is False.
+
+    Returns
+    -------
+    str or tuple
+        Color code in hex format or RGB tuple.
     """
     # Use a simple hash function to generate deterministic but seemingly random values
     h = integer_id * 1103515245 + 12345
