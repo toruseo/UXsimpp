@@ -13,5 +13,5 @@ jobs:
 
       - name: Compile C++ test code and run
         run: |
-          g++ ./test/test_03_gridnetwork_bench.cpp -o test03
+          g++ ./tests/test_03_gridnetwork_bench.cpp -o test03
           ./test03
