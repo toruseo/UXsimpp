@@ -12,8 +12,6 @@
 #include <algorithm>
 #include <chrono>
 #include <queue>
-#include <execution>
-#include <thread>
 
 #include "traffi.h"
 
