@@ -45,6 +45,11 @@ Files that require special attention when modifying:
 
 ## Coding styles
 
+### Naming Conventions
+
+- C++: PascalCase for classes, snake_case for functions and variables
+- Python: PEP 8 compliance (snake_case for functions/variables, PascalCase for classes)
+
 ### Comments
 Python docstring MUST be written using the Numpy style as follows.
 
@@ -105,17 +110,12 @@ bool example_function(int param1, string param2 = "default") {
 }
 ```
 
-### Naming Conventions
-
-- C++: PascalCase for classes, snake_case for functions and variables
-- Python: PEP 8 compliance (snake_case for functions/variables, PascalCase for classes)
-
 ## Tests
 
 When updating the C++ codes of trafficpp, you MUST confirm that the updates pass the following C++ test first.
 
 ```
-g++ tests/test_03_gridnetwork_bench.cpp
+g++ tests/test_03_gridnetwork.cpp
 ./a.out   #for Windows, `./a.exe`
 ```
 

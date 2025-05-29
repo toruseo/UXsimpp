@@ -496,6 +496,10 @@ World::World(
       random_seed(random_seed),
       vehicle_log_reserve_size(0),
       vehicle_log_mode(vehicle_log_mode),
+      ave_v(0.0),
+      ave_vratio(0.0),
+      trips_total(0.0),
+      trips_completed(0.0),
       rng((std::mt19937::result_type)random_seed),
       flag_initialized(false),
       writer(&std::cout){
@@ -658,11 +662,7 @@ void World::print_scenario_stats(){
 }
 
 void World::print_simple_results(){
-    double ave_v = 0.0;
-    double ave_vratio = 0.0;
     double n = 0.0;
-    double trips_total = 0.0;
-    double trips_completed = 0.0;
 
     for (auto veh : vehicles){
         trips_total += delta_n;
