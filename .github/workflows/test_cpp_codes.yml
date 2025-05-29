@@ -1,0 +1,17 @@
+name: Test C++ Codes
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test_cpp_codes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Compile C++ test code and run
+        run: |
+          g++ ./test/test_03_gridnetwork_bench.cpp -o test03
+          ./test03
