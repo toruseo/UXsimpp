@@ -8,8 +8,10 @@ jobs:
   test_cpp_codes:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repo
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+      
+      - name: Install g++
+        run: sudo apt-get update && sudo apt-get install -y g++
 
       - name: Compile C++ test code and run
         run: |
