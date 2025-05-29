@@ -1,10 +1,10 @@
 // clang-format off
 
 /*
-trafficppのベンチマーク用コード．
+trafficppの全体的なテストコード．
 直接
 ```
-g++ test_03_gridnetwork_bench.cpp
+g++ test_03_gridnetwork.cpp
 ./a.exe
 ```
 で実行できる
@@ -20,9 +20,6 @@ g++ test_03_gridnetwork_bench.cpp
 using std::string, std::vector, std::cout, std::endl;
 
 int main(){
-    cout << "Running heavy benchmark" << endl;
-
-    auto start = std::chrono::high_resolution_clock::now();
 
     World* w = new World(
         "example",
@@ -84,12 +81,10 @@ int main(){
     w->main_loop();
     w->print_simple_results();
 
-    assert(w->ave_v > 50.0 && w->ave_v < 6.0);
+    assert(w->ave_v > 5.0 && w->ave_v < 6.0);
     assert(w->ave_vratio > 0.5 && w->ave_vratio < 0.6);
     assert(w->trips_completed > 37000 && w->trips_completed < 38000);
     assert(w->trips_total > 37000 && w->trips_total < 38000);
-    
-    auto end_simulation = std::chrono::high_resolution_clock::now();
     
     delete w;
     return 0;
