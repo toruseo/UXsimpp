@@ -151,7 +151,37 @@ PYBIND11_MODULE(trafficppy, m) {
           py::arg("print_mode"),
           py::arg("random_seed"),
           py::arg("vehicle_log_mode"),
-          "Create a new World simulation object.");
+          R"docstring(
+          Create a new World simulation object.
+
+          Parameters
+          ----------
+          world_name : str
+              Name of the simulation scenario.
+          t_max : float
+              Maximum simulation time in seconds.
+          delta_n : float
+              Platoon size (vehicles per platoon).
+          tau : float
+              Reaction time per vehicle in seconds.
+          duo_update_time : float
+              Time interval for DUO route choice update in seconds.
+          duo_update_weight : float
+              Weight for DUO route choice update.
+          route_choice_uncertainty : float
+              Uncertainty in route choice.
+          print_mode : int
+              Whether to print simulation progress (1 for enabled, 0 for disabled).
+          random_seed : int
+              Random seed for reproducibility.
+          vehicle_log_mode : bool
+              Whether to enable detailed vehicle logging.
+
+          Returns
+          -------
+          World
+              The created World simulation object.
+          )docstring");
 
     m.def("add_node", &add_node,
           py::arg("world"),
@@ -160,7 +190,24 @@ PYBIND11_MODULE(trafficppy, m) {
           py::arg("y"),
           py::arg("signal_intervals"),
           py::arg("signal_offset"),
-          "Add a new Node to the World");
+          R"docstring(
+          Add a new Node to the World.
+
+          Parameters
+          ----------
+          world : World
+              The World object to add the node to.
+          node_name : str
+              Name of the node.
+          x : float
+              X-coordinate of the node (for visualization).
+          y : float
+              Y-coordinate of the node (for visualization).
+          signal_intervals : list of float
+              Green times for each signal phase. Default is [0] (no signal).
+          signal_offset : float
+              Signal offset time. Default is 0.
+          )docstring");
 
     m.def("add_link", &add_link,
           py::arg("world"),
@@ -173,7 +220,32 @@ PYBIND11_MODULE(trafficppy, m) {
           py::arg("merge_priority"),
           py::arg("capacity_out"),
           py::arg("signal_group"),
-          "Add a new Link to the World");
+          R"docstring(
+          Add a new Link to the World.
+
+          Parameters
+          ----------
+          world : World
+              The World object to add the link to.
+          link_name : str
+              Name of the link.
+          start_node_name : str
+              Name of the starting node.
+          end_node_name : str
+              Name of the ending node.
+          vmax : float
+              Free flow speed (m/s).
+          kappa : float
+              Jam density (veh/m).
+          length : float
+              Length of the link (m).
+          merge_priority : float
+              Priority when merging at downstream node.
+          capacity_out : float
+              Outflow capacity (veh/s). Use -1.0 for unlimited.
+          signal_group : list of int
+              Signal groups this link belongs to.
+          )docstring");
 
     m.def("add_demand", &add_demand,
           py::arg("world"),
@@ -183,27 +255,128 @@ PYBIND11_MODULE(trafficppy, m) {
           py::arg("end_t"),
           py::arg("flow"),
           py::arg("links_preferred_str"),
-          "Add demand (vehicle generation) in the World");
+          R"docstring(
+          Add demand (vehicle generation) to the World.
+
+          Parameters
+          ----------
+          world : World
+              The World object to add demand to.
+          orig_name : str
+              Name of the origin node.
+          dest_name : str
+              Name of the destination node.
+          start_t : float
+              Start time for demand generation (seconds).
+          end_t : float
+              End time for demand generation (seconds).
+          flow : float
+              Flow rate (vehicles per second).
+          links_preferred_str : list of str
+              List of preferred link names for vehicles to use.
+          )docstring");
 
     //
     // 2) MARK: World
     //
     py::class_<World>(m, "World")
-        .def("initialize_adj_matrix", &World::initialize_adj_matrix)
-        .def("print_scenario_stats", &World::print_scenario_stats)
-        .def("main_loop", &World::main_loop)
-        .def("check_simulation_ongoing", &World::check_simulation_ongoing)
-        .def("print_simple_results", &World::print_simple_results)
-        .def("update_adj_time_matrix", &World::update_adj_time_matrix)
+        .def("initialize_adj_matrix", &World::initialize_adj_matrix,
+             R"docstring(
+             Initialize adjacency matrices for the network.
+             
+             Creates adjacency matrices for network connectivity and travel times.
+             Must be called before simulation execution.
+             )docstring")
+        .def("print_scenario_stats", &World::print_scenario_stats,
+             R"docstring(
+             Print scenario statistics.
+             
+             Displays information about the simulation scenario including
+             number of nodes, links, vehicles, and simulation parameters.
+             )docstring")
+        .def("main_loop", &World::main_loop,
+             py::arg("duration_t") = -1, py::arg("end_t") = -1,
+             R"docstring(
+             Execute the main simulation loop.
+
+             Parameters
+             ----------
+             duration_t : float, optional
+                 Duration to simulate in seconds. Default -1 means until end.
+             end_t : float, optional
+                 End time for simulation in seconds. Default -1 means until end.
+             )docstring")
+        .def("check_simulation_ongoing", &World::check_simulation_ongoing,
+             R"docstring(
+             Check if simulation is still ongoing.
+
+             Returns
+             -------
+             bool
+                 True if simulation has not reached its end time.
+             )docstring")
+        .def("print_simple_results", &World::print_simple_results,
+             R"docstring(
+             Print simple simulation results.
+             
+             Displays basic simulation results including average speeds
+             and trip completion statistics.
+             )docstring")
+        .def("update_adj_time_matrix", &World::update_adj_time_matrix,
+             R"docstring(
+             Update adjacency matrix with current travel times.
+             
+             Updates the travel time matrix based on current link conditions
+             for route choice calculations.
+             )docstring")
         .def("get_node", &World::get_node,
              py::return_value_policy::reference,
-             "Get a Node by name (reference)")
+             py::arg("node_name"),
+             R"docstring(
+             Get a Node by name.
+
+             Parameters
+             ----------
+             node_name : str
+                 Name of the node to find.
+
+             Returns
+             -------
+             Node
+                 Reference to the node object.
+             )docstring")
         .def("get_link", &World::get_link,
              py::return_value_policy::reference,
-             "Get a Link by name (reference)")
+             py::arg("link_name"),
+             R"docstring(
+             Get a Link by name.
+
+             Parameters
+             ----------
+             link_name : str
+                 Name of the link to find.
+
+             Returns
+             -------
+             Link
+                 Reference to the link object.
+             )docstring")
         .def("get_vehicle", &World::get_vehicle,
              py::return_value_policy::reference,
-             "Get a Vehicle by name (reference)")
+             py::arg("vehicle_name"),
+             R"docstring(
+             Get a Vehicle by name.
+
+             Parameters
+             ----------
+             vehicle_name : str
+                 Name of the vehicle to find.
+
+             Returns
+             -------
+             Vehicle
+                 Reference to the vehicle object.
+             )docstring")
         .def_readonly("VEHICLES", &World::vehicles,
                       "Vector of pointers to all Vehicles in the world.")
         .def_readonly("LINKS", &World::links,
@@ -228,22 +401,48 @@ PYBIND11_MODULE(trafficppy, m) {
              py::arg("world"),
              py::arg("node_name"),
              py::arg("x"),
-             py::arg("y"))
-        .def_readonly("W", &Node::w)
-        .def_readonly("id", &Node::id)
-        .def_readonly("name", &Node::name)
-        .def_readwrite("x", &Node::x)
-        .def_readwrite("y", &Node::y)
-        .def_readwrite("signal_intervals", &Node::signal_intervals)
-        .def_readwrite("signal_offset", &Node::signal_offset)
-        .def_readwrite("signal_t", &Node::signal_t)
-        .def_readwrite("signal_phase", &Node::signal_phase)
-        .def_readonly("in_links", &Node::in_links)
-        .def_readonly("out_links", &Node::out_links)
-        .def_readonly("incoming_vehicles", &Node::incoming_vehicles)
-        .def_readonly("generation_queue", &Node::generation_queue)
-        .def("generate", &Node::generate)
-        .def("transfer", &Node::transfer)
+             py::arg("y"),
+             R"docstring(
+             Create a new Node.
+
+             Parameters
+             ----------
+             world : World
+                 The World object this node belongs to.
+             node_name : str
+                 Name of the node.
+             x : float
+                 X-coordinate of the node (for visualization).
+             y : float
+                 Y-coordinate of the node (for visualization).
+             )docstring")
+        .def_readonly("W", &Node::w, "Pointer to the world this node belongs to.")
+        .def_readonly("id", &Node::id, "Unique identifier for this node.")
+        .def_readonly("name", &Node::name, "Name of the node.")
+        .def_readwrite("x", &Node::x, "X-coordinate of the node (for visualization).")
+        .def_readwrite("y", &Node::y, "Y-coordinate of the node (for visualization).")
+        .def_readwrite("signal_intervals", &Node::signal_intervals, "Green times for each signal phase.")
+        .def_readwrite("signal_offset", &Node::signal_offset, "Signal offset time.")
+        .def_readwrite("signal_t", &Node::signal_t, "Elapsed time since current phase started.")
+        .def_readwrite("signal_phase", &Node::signal_phase, "Current signal phase.")
+        .def_readonly("in_links", &Node::in_links, "Incoming links to this node.")
+        .def_readonly("out_links", &Node::out_links, "Outgoing links from this node.")
+        .def_readonly("incoming_vehicles", &Node::incoming_vehicles, "Vehicles that have just arrived at this node.")
+        .def_readonly("generation_queue", &Node::generation_queue, "Vehicles waiting to be generated onto outgoing links.")
+        .def("generate", &Node::generate,
+             R"docstring(
+             Generate vehicles from the generation queue.
+             
+             Attempts to depart vehicles from the generation queue to outgoing links.
+             The choice of outgoing link is based on the vehicle's route preference.
+             )docstring")
+        .def("transfer", &Node::transfer,
+             R"docstring(
+             Transfer vehicles between links at the node.
+             
+             Handles the transfer of vehicles from incoming links to outgoing links.
+             Considers signal phases, merge priorities, and link capacities.
+             )docstring")
         ;
 
     //
@@ -260,32 +459,66 @@ PYBIND11_MODULE(trafficppy, m) {
              py::arg("kappa"), 
              py::arg("length"),
              py::arg("merge_priority"),
-             py::arg("capacity_out"))
-        .def_readonly("W", &Link::w)
-        .def_readonly("id", &Link::id)
-        .def_readonly("name", &Link::name)
-        .def_readwrite("length", &Link::length)
-        .def_readwrite("u", &Link::vmax)
-        .def_readwrite("vmax", &Link::vmax)
-        .def_readwrite("kappa", &Link::kappa)
-        .def_readwrite("delta", &Link::delta)
-        .def_readwrite("tau", &Link::tau)
-        .def_readwrite("capacity", &Link::capacity)
-        .def_readwrite("w", &Link::backward_wave_speed)
-        .def_readwrite("merge_priority", &Link::merge_priority)
-        .def_readwrite("capacity_out", &Link::capacity_out)
-        .def_readwrite("signal_group", &Link::signal_group)
-        .def_readonly("start_node", &Link::start_node)
-        .def_readonly("end_node", &Link::end_node)
-        .def_readonly("vehicles", &Link::vehicles)
-        .def_readonly("arrival_curve", &Link::arrival_curve)
-        .def_readonly("cum_arrival", &Link::arrival_curve)
-        .def_readonly("departure_curve", &Link::departure_curve)
-        .def_readonly("cum_departure", &Link::departure_curve)
-        .def_readonly("traveltime_real", &Link::traveltime_real)
-        .def_readonly("traveltime_instant", &Link::traveltime_instant)
-        .def("update", &Link::update)
-        .def("set_travel_time", &Link::set_travel_time)
+             py::arg("capacity_out"),
+             R"docstring(
+             Create a new Link.
+
+             Parameters
+             ----------
+             world : World
+                 The World object this link belongs to.
+             link_name : str
+                 Name of the link.
+             start_node_name : str
+                 Name of the starting node.
+             end_node_name : str
+                 Name of the ending node.
+             vmax : float
+                 Free flow speed (m/s).
+             kappa : float
+                 Jam density (veh/m).
+             length : float
+                 Length of the link (m).
+             merge_priority : float
+                 Priority when merging at downstream node.
+             capacity_out : float
+                 Outflow capacity (veh/s).
+             )docstring")
+        .def_readonly("W", &Link::w, "Pointer to the world this link belongs to.")
+        .def_readonly("id", &Link::id, "Unique identifier for this link.")
+        .def_readonly("name", &Link::name, "Name of the link.")
+        .def_readwrite("length", &Link::length, "Length of the link in meters.")
+        .def_readwrite("u", &Link::vmax, "Free flow speed (m/s).")
+        .def_readwrite("vmax", &Link::vmax, "Free flow speed (m/s).")
+        .def_readwrite("kappa", &Link::kappa, "Jam density (veh/m).")
+        .def_readwrite("delta", &Link::delta, "Minimum spacing per vehicle (m/veh).")
+        .def_readwrite("tau", &Link::tau, "Reaction time per vehicle (s/veh).")
+        .def_readwrite("capacity", &Link::capacity, "Link capacity (veh/s).")
+        .def_readwrite("w", &Link::backward_wave_speed, "Backward wave speed (m/s).")
+        .def_readwrite("merge_priority", &Link::merge_priority, "Priority when merging at downstream node.")
+        .def_readwrite("capacity_out", &Link::capacity_out, "Outflow capacity (veh/s).")
+        .def_readwrite("signal_group", &Link::signal_group, "Signal groups this link belongs to.")
+        .def_readonly("start_node", &Link::start_node, "Starting node of the link.")
+        .def_readonly("end_node", &Link::end_node, "Ending node of the link.")
+        .def_readonly("vehicles", &Link::vehicles, "Vehicles currently on this link (FIFO order).")
+        .def_readonly("arrival_curve", &Link::arrival_curve, "Cumulative arrival count over time.")
+        .def_readonly("cum_arrival", &Link::arrival_curve, "Cumulative arrival count over time.")
+        .def_readonly("departure_curve", &Link::departure_curve, "Cumulative departure count over time.")
+        .def_readonly("cum_departure", &Link::departure_curve, "Cumulative departure count over time.")
+        .def_readonly("traveltime_real", &Link::traveltime_real, "Actual travel time experienced by vehicles.")
+        .def_readonly("traveltime_instant", &Link::traveltime_instant, "Instantaneous travel time based on current conditions.")
+        .def("update", &Link::update,
+             R"docstring(
+             Update link state for current timestep.
+             
+             Updates travel time calculations and capacity constraints.
+             )docstring")
+        .def("set_travel_time", &Link::set_travel_time,
+             R"docstring(
+             Calculate and set travel time metrics.
+             
+             Computes both actual and instantaneous travel times based on current traffic conditions.
+             )docstring")
         ;
 
     //
@@ -297,33 +530,49 @@ PYBIND11_MODULE(trafficppy, m) {
              py::arg("name"),
              py::arg("departure_time"),
              py::arg("orig_name"),
-             py::arg("dest_name"))
-        .def_readonly("W", &Vehicle::w)
-        .def_readonly("id", &Vehicle::id)
-        .def_readwrite("name", &Vehicle::name)
-        .def_readonly("departure_time", &Vehicle::departure_time)
-        .def_readwrite("orig", &Vehicle::orig)
-        .def_readwrite("dest", &Vehicle::dest)
-        .def_readonly("link", &Vehicle::link)
-        .def_readonly("x", &Vehicle::x)
-        .def_readonly("x_next", &Vehicle::x_next)
-        .def_readonly("v", &Vehicle::v)
-        .def_readonly("leader", &Vehicle::leader)
-        .def_readonly("follower", &Vehicle::follower)
-        .def_readonly("state", &Vehicle::state)
-        .def_readonly("arrival_time_link", &Vehicle::arrival_time_link)
-        .def_readwrite("route_next_link", &Vehicle::route_next_link)
-        .def_readwrite("route_choice_flag_on_link", &Vehicle::route_choice_flag_on_link)
-        .def_readwrite("route_adaptive", &Vehicle::route_adaptive)
-        .def_readwrite("route_preference", &Vehicle::route_preference)
-        .def_readwrite("links_preferred", &Vehicle::links_preferred)
-        .def_readonly("log_t", &Vehicle::log_t)
-        .def_readonly("log_state", &Vehicle::log_state)
-        .def_readonly("log_link", &Vehicle::log_link)
-        .def_readonly("log_x", &Vehicle::log_x)
-        .def_readonly("log_v", &Vehicle::log_v)
-        .def_readonly("arrival_time", &Vehicle::arrival_time)
-        .def_readonly("travel_time", &Vehicle::travel_time)
+             py::arg("dest_name"),
+             R"docstring(
+             Create a new Vehicle.
+
+             Parameters
+             ----------
+             world : World
+                 The World object this vehicle belongs to.
+             name : str
+                 Name of the vehicle.
+             departure_time : float
+                 Scheduled departure time (seconds).
+             orig_name : str
+                 Name of the origin node.
+             dest_name : str
+                 Name of the destination node.
+             )docstring")
+        .def_readonly("W", &Vehicle::w, "Pointer to the world this vehicle belongs to.")
+        .def_readonly("id", &Vehicle::id, "Unique identifier for this vehicle.")
+        .def_readwrite("name", &Vehicle::name, "Name of the vehicle.")
+        .def_readonly("departure_time", &Vehicle::departure_time, "Scheduled departure time (seconds).")
+        .def_readwrite("orig", &Vehicle::orig, "Origin node.")
+        .def_readwrite("dest", &Vehicle::dest, "Destination node.")
+        .def_readonly("link", &Vehicle::link, "Current link the vehicle is on.")
+        .def_readonly("x", &Vehicle::x, "Current position on the link (meters).")
+        .def_readonly("x_next", &Vehicle::x_next, "Next position for car-following calculation.")
+        .def_readonly("v", &Vehicle::v, "Current speed (m/s).")
+        .def_readonly("leader", &Vehicle::leader, "Leading vehicle in the same lane.")
+        .def_readonly("follower", &Vehicle::follower, "Following vehicle in the same lane.")
+        .def_readonly("state", &Vehicle::state, "Vehicle state: home(0), wait(1), run(2), end(3).")
+        .def_readonly("arrival_time_link", &Vehicle::arrival_time_link, "Time when vehicle entered current link.")
+        .def_readwrite("route_next_link", &Vehicle::route_next_link, "Next link chosen by route choice.")
+        .def_readwrite("route_choice_flag_on_link", &Vehicle::route_choice_flag_on_link, "Flag indicating if route choice has been made on current link.")
+        .def_readwrite("route_adaptive", &Vehicle::route_adaptive, "Route adaptation parameter.")
+        .def_readwrite("route_preference", &Vehicle::route_preference, "Preference weights for each link.")
+        .def_readwrite("links_preferred", &Vehicle::links_preferred, "Preferred links for this vehicle.")
+        .def_readonly("log_t", &Vehicle::log_t, "Time log.")
+        .def_readonly("log_state", &Vehicle::log_state, "State log.")
+        .def_readonly("log_link", &Vehicle::log_link, "Link ID log.")
+        .def_readonly("log_x", &Vehicle::log_x, "Position log.")
+        .def_readonly("log_v", &Vehicle::log_v, "Speed log.")
+        .def_readonly("arrival_time", &Vehicle::arrival_time, "Actual arrival time at destination.")
+        .def_readonly("travel_time", &Vehicle::travel_time, "Total travel time (arrival_time - departure_time).")
         // .def("update", &Vehicle::update)
         // .def("end_trip", &Vehicle::end_trip)
         // .def("car_follow_newell", &Vehicle::car_follow_newell)

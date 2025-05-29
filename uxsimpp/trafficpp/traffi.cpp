@@ -1,3 +1,11 @@
+/**
+ * @file traffi.cpp
+ * @brief Implementation file for UXsim++ C++ traffic simulation core
+ * 
+ * This file contains the implementation of the core classes for the mesoscopic traffic simulation.
+ * It is a C++ port of the original UXsim Python implementation with optimizations for performance.
+ */
+
 // clang-format off
 
 #include <iostream>
@@ -44,32 +52,34 @@ void Node::generate(){
     if (!generation_queue.empty()){
         Vehicle *veh = generation_queue.front();
         
-        //Choose the link
+        // Choose the outgoing link based on route preferences
         veh -> route_next_link_choice(out_links);
 
         if (!out_links.empty() && veh->route_next_link != nullptr){
             Link *outlink = veh->route_next_link;
 
-            // check if outlink can accept a new vehicle
+            // Check if outlink can accept a new vehicle (sufficient spacing)
             if (outlink->vehicles.empty() || outlink->vehicles.back()->x > outlink->delta * w->delta_n){
-                // pop front
+                // Remove vehicle from generation queue
                 generation_queue.pop_front();
 
+                // Set vehicle state to running and place on chosen link
                 veh->state = vsRUN;
                 veh->link = outlink;
                 veh->x = 0.0;
                 veh->record_travel_time(nullptr, (double)w->timestep * w->delta_t);
 
+                // Add to running vehicles collection
                 w->vehicles_running[veh->id] = veh;
 
-                // Leader-Follower
+                // Set up leader-follower relationships for car-following
                 if (!outlink->vehicles.empty()){
                     veh->leader = outlink->vehicles.back();
                     outlink->vehicles.back()->follower = veh;
                 }
                 outlink->vehicles.push_back(veh);
 
-                // arrival curve
+                // Update cumulative arrival curve for traffic analysis
                 outlink->arrival_curve[w->timestep] += w->delta_n;
             }
         }
