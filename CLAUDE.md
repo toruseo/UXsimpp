@@ -82,6 +82,13 @@ pip uninstall uxsimpp && pip install -e .
 
 Always test C++ unit tests before Python integration tests. The C++ tests are faster and will catch core logic issues early. Python tests verify the complete Python-C++ integration works correctly.
 
+## Python virtual environment
+
+When using Python in Linux (including WSL), always use the virtual environment `venv` that can be activated by
+```bash
+source venv/bin/activate
+```
+
 ## Other tips
 
 - Adding new dependencies is not recommended. Requests users permission if necessary.
