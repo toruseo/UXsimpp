@@ -12,8 +12,6 @@
 #include <algorithm>
 #include <chrono>
 #include <queue>
-#include <execution>
-#include <thread>
 
 #include "traffi.h"
 
@@ -25,6 +23,16 @@ using std::cout, std::endl;
 // MARK: Node 
 // -----------------------------------------------------------------------
 
+/**
+ * @brief Create a node.
+ * 
+ * @param w The world to which the node belongs.
+ * @param node_name The name of the node.
+ * @param x The x-coordinate of the node.
+ * @param y The y-coordinate of the node.
+ * @param signal_intervals A list representing the signal at the node.
+ * @param signal_offset The offset of the signal.
+ */
 Node::Node(World *w, const string &node_name, double x, double y, vector<double> signal_intervals, double signal_offset)
     : w(w),
       id(w->node_id),
@@ -41,6 +49,9 @@ Node::Node(World *w, const string &node_name, double x, double y, vector<double>
     signal_phase = 0;
 }
 
+/**
+ * @brief Generate a single vehicle if possible.
+ */
 void Node::generate(){
     // If there's a waiting vehicle to be generated onto an outgoing link
     if (!generation_queue.empty()){
@@ -78,6 +89,9 @@ void Node::generate(){
     }
 }
 
+/**
+ * @brief Update the signal state of the node.
+ */
 void Node::signal_update(){
     if (signal_intervals.size() > 1){
         while (signal_t > signal_intervals[signal_phase]){
@@ -91,6 +105,9 @@ void Node::signal_update(){
     }
 }
 
+/**
+ * @brief Transfer vehicles between links at the node.
+ */
 void Node::transfer(){
     // For each outlink, check if we can accept a vehicle
     for (auto outlink : out_links){
@@ -169,6 +186,20 @@ void Node::transfer(){
 // MARK: Link 
 // -----------------------------------------------------------------------
 
+/**
+ * @brief Create a link.
+ * 
+ * @param w The world to which the link belongs.
+ * @param link_name The name of the link.
+ * @param start_node_name The name of the start node.
+ * @param end_node_name The name of the end node.
+ * @param vmax The free flow speed on the link.
+ * @param kappa The jam density on the link.
+ * @param length The length of the link.
+ * @param merge_priority The priority of the link when merging.
+ * @param capacity_out The capacity out of the link.
+ * @param signal_group The signal group(s) to which the link belongs.
+ */
 Link::Link(
     World *w,
     const string &link_name,
@@ -222,6 +253,9 @@ Link::Link(
     w->links_map[link_name] = this;
 }
 
+/**
+ * @brief Update link state and capacity.
+ */
 void Link::update(){
     set_travel_time();
 
@@ -239,6 +273,9 @@ void Link::update(){
     }
 }
 
+/**
+ * @brief Set travel time based on current traffic conditions.
+ */
 void Link::set_travel_time(){
     // last vehicle's real travel time
     if (!traveltime_tt.empty() && !vehicles.empty()){
@@ -269,6 +306,15 @@ void Link::set_travel_time(){
 // -----------------------------------------------------------------------
 
 
+/**
+ * @brief Create a vehicle.
+ * 
+ * @param w The world to which the vehicle belongs.
+ * @param vehicle_name The name of the vehicle.
+ * @param departure_time The departure time of the vehicle.
+ * @param orig_name The origin node.
+ * @param dest_name The destination node.
+ */
 Vehicle::Vehicle(
     World *w,
     const string &vehicle_name,
@@ -317,6 +363,9 @@ Vehicle::Vehicle(
     w->vehicles_map[vehicle_name] = this;
 }
 
+/**
+ * @brief Update vehicle state and movement.
+ */
 void Vehicle::update(){
 
     if (state == vsHOME){
@@ -356,6 +405,9 @@ void Vehicle::update(){
     }
 }
 
+/**
+ * @brief End the vehicle's trip.
+ */
 void Vehicle::end_trip(){
     state = vsEND;
     link->departure_curve[w->timestep] += w->delta_n;
@@ -376,6 +428,9 @@ void Vehicle::end_trip(){
     x = 0.0;
 }
 
+/**
+ * @brief Apply Newell's car-following model.
+ */
 void Vehicle::car_follow_newell(){
     // free-flow
     x_next = x + link->vmax * w->delta_t;
@@ -399,6 +454,11 @@ void Vehicle::car_follow_newell(){
     }
 }
 
+/**
+ * @brief Choose the next link based on route choice principle.
+ * 
+ * @param linkset Available links to choose from.
+ */
 void Vehicle::route_next_link_choice(vector<Link*> linkset){
     if (linkset.empty()){
         // no outgoing link
@@ -435,6 +495,12 @@ void Vehicle::route_next_link_choice(vector<Link*> linkset){
     route_choice_flag_on_link = 1;
 }
 
+/**
+ * @brief Record travel time for the link.
+ * 
+ * @param link The link to record travel time for.
+ * @param t The current time.
+ */
 void Vehicle::record_travel_time(Link *link, double t){
     if (link != nullptr){
         link->traveltime_t.push_back(t);
@@ -443,6 +509,9 @@ void Vehicle::record_travel_time(Link *link, double t){
     arrival_time_link = t + 1.0;
 }
 
+/**
+ * @brief Log vehicle data for analysis.
+ */
 void Vehicle::log_data(){
     // 各タイムステップのログを push_back で追加する
     if (w->vehicle_log_mode == 1){
@@ -467,6 +536,20 @@ void Vehicle::log_data(){
 // MARK: World 
 // -----------------------------------------------------------------------
 
+/**
+ * @brief Create a World (simulation environment).
+ * 
+ * @param world_name The name of the world.
+ * @param t_max The simulation duration.
+ * @param delta_n The platoon size.
+ * @param tau The reaction time.
+ * @param duo_update_time The time interval for route choice update.
+ * @param duo_update_weight The update weight for route choice.
+ * @param route_choice_uncertainty The noise in route choice.
+ * @param print_mode Whether print the simulation progress or not.
+ * @param random_seed The random seed.
+ * @param vehicle_log_mode Whether save vehicle data or not.
+ */
 World::World(
     const string &world_name,
     double t_max,
@@ -498,6 +581,10 @@ World::World(
       random_seed(random_seed),
       vehicle_log_reserve_size(0),
       vehicle_log_mode(vehicle_log_mode),
+      ave_v(0.0),
+      ave_vratio(0.0),
+      trips_total(0.0),
+      trips_completed(0.0),
       rng((std::mt19937::result_type)random_seed),
       flag_initialized(false),
       writer(&std::cout){
@@ -623,6 +710,9 @@ pair<vector<vector<double>>, vector<vector<int>>>
     return {dist, next_hop};
 }
 
+/**
+ * @brief Update route choice using dynamic user optimum.
+ */
 void World::route_choice_duo(){
     for (auto dest : nodes){
         int k = dest->id;
@@ -660,11 +750,7 @@ void World::print_scenario_stats(){
 }
 
 void World::print_simple_results(){
-    double ave_v = 0.0;
-    double ave_vratio = 0.0;
     double n = 0.0;
-    double trips_total = 0.0;
-    double trips_completed = 0.0;
 
     for (auto veh : vehicles){
         trips_total += delta_n;
@@ -700,6 +786,12 @@ void World::print_simple_results(){
 //MARK: mainloop
 // -----------------------------------------------------------------------
 
+/**
+ * @brief Main simulation loop.
+ * 
+ * @param duration_t Duration to run simulation.
+ * @param until_t Time to run simulation until.
+ */
 void World::main_loop(double duration_t=-1, double until_t=-1){
     int start_ts, end_ts;
     start_ts = timestep;

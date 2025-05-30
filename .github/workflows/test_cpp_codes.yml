@@ -1,0 +1,19 @@
+name: Test C++ Codes
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test_cpp_codes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Install g++
+        run: sudo apt-get update && sudo apt-get install -y g++
+
+      - name: Compile C++ test code and run
+        run: |
+          g++ ./tests/test_03_gridnetwork.cpp -o test03
+          ./test03

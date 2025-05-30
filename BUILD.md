@@ -1,97 +1,97 @@
-# uxsimppパッケージのビルドと配布手順
+# Build and Distribution Instructions for the uxsimpp Package
 
-このドキュメントでは、uxsimppパッケージをビルドし、配布可能な形式に変換するための手順を説明します。
+This document outlines the steps required to build and prepare the uxsimpp package for distribution.
 
-## 前提条件
+## Prerequisites
 
-以下のソフトウェアがインストールされている必要があります：
+The following software must be installed:
 
-- Python 3.9以上
-- C++コンパイラ
+- Python 3.9 or later
+- C++ compiler
   - Windows: Visual Studio Build Tools
   - Linux: GCC
   - macOS: Clang
-- CMake 3.15以上
+- CMake
 
-## 開発環境のセットアップ
+## Setting Up the Development Environment
 
-### 仮想環境
+### Virtual Environment
 
 ```
-# 仮想環境の作成
+# Create a virtual environment
 python -m venv venv
 
-# 仮想環境の有効化
+# Activate the virtual environment
 # Windows
 venv\Scripts\activate
 # Linux/macOS
 source venv/bin/activate
 ```
 
-### 必要なパッケージのインストール
+### Installing Required Packages
 
 ```
 pip install scikit-build-core pybind11 cmake ninja pytest build
 ```
 
 
-## テストの実行
+## Running Tests
 
-パッケージが正しく機能するかテストします。
+Verify that the package functions correctly by executing the following test:
 
 ```
 pytest tests/test_verification.py -v
 ```
 
-## 配布用パッケージの作成
+## Creating Distribution Packages
 
 
-### ソースディストリビューションとホイールの作成
+### Building Source Distributions and Wheel Packages
 
 ```
 python -m build
 ```
 
-このコマンドを実行すると、`dist`ディレクトリに以下のファイルが生成されます：
+Executing this command will generate the following files in the `dist` directory:
 
-- `uxsimpp-0.1.0.tar.gz` - ソースディストリビューション
-- `uxsimpp-0.1.0-cp39-cp39-win_amd64.whl` - ホイールパッケージ（プラットフォームによって名前が異なります）
+- `uxsimpp-0.1.0.tar.gz` - Source distribution
+- `uxsimpp-0.1.0-cp39-cp39-win_amd64.whl` - Wheel package (file name varies by platform)
 
-## ビルドしたパッケージのテスト
+## Testing the Built Package
 
-### 既存のパッケージをアンインストール
+### Uninstall Existing Package
 
 ```
 pip uninstall -y uxsimpp
 ```
 
-### ビルドしたホイールをインストール
+### Install the Built Wheel Package
 
 ```
 pip install dist/uxsimpp-0.1.0*.whl
 ```
 
-### テストの実行
+### Run Tests
 
 ```
 pytest tests/test_verification.py -v
 ```
 
-## PyPIへの公開
+## Publishing to PyPI
 
-### 必要なツールのインストール
+### Install Required Tools
 
 ```
 pip install twine
 ```
 
-### TestPyPI（テスト用）へのアップロード
+### Upload to TestPyPI (for testing purposes)
 
 ```
 twine upload --repository-url https://test.pypi.org/legacy/ dist/*
 ```
 
-### 本番PyPIへのアップロード
+### Upload to Production PyPI
 
 ```
 twine upload dist/*

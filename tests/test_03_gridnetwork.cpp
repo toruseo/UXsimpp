@@ -1,10 +1,10 @@
 // clang-format off
 
 /*
-trafficppのベンチマーク用コード．
+trafficppの全体的なテストコード．
 直接
 ```
-g++ test_03_gridnetwork_bench.cpp
+g++ test_03_gridnetwork.cpp
 ./a.exe
 ```
 で実行できる
@@ -13,16 +13,13 @@ g++ test_03_gridnetwork_bench.cpp
 #include <iostream>
 #include <string>
 #include <vector>
-#include <chrono>
+#include <cassert>
 
 #include "../uxsimpp/trafficpp/traffi.cpp"
 
 using std::string, std::vector, std::cout, std::endl;
 
 int main(){
-    cout << "Running heavy benchmark" << endl;
-
-    auto start = std::chrono::high_resolution_clock::now();
 
     World* w = new World(
         "example",
@@ -81,23 +78,14 @@ int main(){
     w->initialize_adj_matrix();
     w->print_scenario_stats();
 
-    auto end_scenario_definition = std::chrono::high_resolution_clock::now();
-    
-
     w->main_loop();
     w->print_simple_results();
 
+    assert(w->ave_v > 5.0 && w->ave_v < 6.0);
+    assert(w->ave_vratio > 0.5 && w->ave_vratio < 0.6);
+    assert(w->trips_completed > 37000 && w->trips_completed < 38000);
+    assert(w->trips_total > 37000 && w->trips_total < 38000);
     
-    auto end_simulation = std::chrono::high_resolution_clock::now();
-    
-    std::chrono::duration<double, std::milli> duration_ms_scenario = end_scenario_definition - start;
-    std::cout << "TIME FOR SCENARIO:   " << duration_ms_scenario.count() << " ms" << std::endl;
-
-    std::chrono::duration<double, std::milli> duration_ms_sim = end_simulation - end_scenario_definition;
-    std::cout << "TIME FOR SIMULATION: " << duration_ms_sim.count() << " ms" << std::endl;
-    
-    std::cout << duration_ms_sim.count()+duration_ms_scenario.count() << std::endl;  //ベンチマーク用のprint
-    // Cleanup
     delete w;
     return 0;
 }

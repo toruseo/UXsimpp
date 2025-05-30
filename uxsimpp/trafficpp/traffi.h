@@ -249,6 +249,12 @@ struct World {
 
     bool flag_initialized;
 
+    // stats
+    double ave_v;
+    double ave_vratio;
+    double trips_total;
+    double trips_completed;
+
     // Randomness
     long long random_seed;
     std::mt19937 rng;

@@ -32,6 +32,11 @@ dependencies = [
     "pandas>=1.4.4",
 ]
 
+
+[project.urls]
+Homepage = "https://github.com/toruseo/UXsimpp"
+Issues = "https://github.com/toruseo/UXsimpp/issues"
+
 [tool.scikit-build]
 wheel.packages = ["uxsimpp"]
 cmake.version = ">=3.15"
