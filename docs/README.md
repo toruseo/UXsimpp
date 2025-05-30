@@ -59,6 +59,20 @@ cd docs
 make html
 ```
 
+### GitHub Pages Build
+
+To build and copy HTML files to `/docs/` root for GitHub Pages:
+
+```bash
+cd docs
+make github-pages
+```
+
+This command:
+1. Builds the documentation with `make html`
+2. Copies all HTML files from `build/html/` to `/docs/` root
+3. Ready for GitHub Pages publishing from `/docs` folder
+
 ### Clean Build
 
 To rebuild everything from scratch:
@@ -67,6 +81,18 @@ To rebuild everything from scratch:
 cd docs
 make clean
 make html
+# or for GitHub Pages
+make clean
+make github-pages
+```
+
+### Clean All Files
+
+To clean build files AND GitHub Pages files in docs root:
+
+```bash
+cd docs
+make clean-all
 ```
 
 ### Live Reload Development

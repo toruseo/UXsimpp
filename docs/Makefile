@@ -18,3 +18,17 @@ help:
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
 %: Makefile
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+
+# GitHub Pages target: build HTML and copy to docs root
+github-pages: html
+	@echo "Copying HTML files for GitHub Pages..."
+	@cp -r build/html/* .
+	@echo "HTML files copied to docs/ root for GitHub Pages"
+
+# Clean including GitHub Pages files
+clean-all: clean
+	@echo "Cleaning GitHub Pages files..."
+	@rm -f *.html *.js
+	@rm -rf _static _sources
+	@rm -f .buildinfo
+	@echo "GitHub Pages files cleaned"
