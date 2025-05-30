@@ -1,0 +1,1152 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="#" /><link rel="search" title="Search" href="search.html" />
+
+    <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 --><title>Index - UXsim++: Traffic Simulation for Python v0 documentation</title>
+<link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">UXsim++: Traffic Simulation for Python v0 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  
+  <span class="sidebar-brand-text">UXsim++: Traffic Simulation for Python v0 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="uxsimpp.html">uxsimpp</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="tech_ref.html">Technical Reference</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Technical Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/uxsimpp.World.html">uxsimpp.World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/uxsimpp.Node.html">uxsimpp.Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/uxsimpp.Link.html">uxsimpp.Link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/uxsimpp.Vehicle.html">uxsimpp.Vehicle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/uxsimpp.trafficppy.World.html">uxsimpp.trafficppy.World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/uxsimpp.trafficppy.Node.html">uxsimpp.trafficppy.Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/uxsimpp.trafficppy.Link.html">uxsimpp.trafficppy.Link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/uxsimpp.trafficppy.Vehicle.html">uxsimpp.trafficppy.Vehicle</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          
+<section class="genindex-section">
+  <h1 id="index">Index</h1>
+  <div class="genindex-jumpbox"><a href="#_"><strong>_</strong></a> | <a href="#A"><strong>A</strong></a> | <a href="#C"><strong>C</strong></a> | <a href="#D"><strong>D</strong></a> | <a href="#E"><strong>E</strong></a> | <a href="#F"><strong>F</strong></a> | <a href="#G"><strong>G</strong></a> | <a href="#I"><strong>I</strong></a> | <a href="#K"><strong>K</strong></a> | <a href="#L"><strong>L</strong></a> | <a href="#M"><strong>M</strong></a> | <a href="#N"><strong>N</strong></a> | <a href="#O"><strong>O</strong></a> | <a href="#P"><strong>P</strong></a> | <a href="#R"><strong>R</strong></a> | <a href="#S"><strong>S</strong></a> | <a href="#T"><strong>T</strong></a> | <a href="#U"><strong>U</strong></a> | <a href="#V"><strong>V</strong></a> | <a href="#W"><strong>W</strong></a> | <a href="#X"><strong>X</strong></a> | <a href="#Y"><strong>Y</strong></a></div>
+</section>
+<section id="_" class="genindex-section">
+  <h2>_</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="_autosummary/uxsimpp.Link.html#id0">__init__() (uxsimpp.Link method)</a>, <a href="_autosummary/uxsimpp.Link.html#uxsimpp.Link.__init__">[1]</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.Node.html#id0">(uxsimpp.Node method)</a>, <a href="_autosummary/uxsimpp.Node.html#uxsimpp.Node.__init__">[1]</a>
+</li>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Link.html#id0">(uxsimpp.trafficppy.Link method)</a>, <a href="_autosummary/uxsimpp.trafficppy.Link.html#uxsimpp.trafficppy.Link.__init__">[1]</a>
+</li>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Node.html#id0">(uxsimpp.trafficppy.Node method)</a>, <a href="_autosummary/uxsimpp.trafficppy.Node.html#uxsimpp.trafficppy.Node.__init__">[1]</a>
+</li>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Vehicle.html#id0">(uxsimpp.trafficppy.Vehicle method)</a>, <a href="_autosummary/uxsimpp.trafficppy.Vehicle.html#uxsimpp.trafficppy.Vehicle.__init__">[1]</a>
+</li>
+          <li><a href="_autosummary/uxsimpp.trafficppy.World.html#id0">(uxsimpp.trafficppy.World method)</a>, <a href="_autosummary/uxsimpp.trafficppy.World.html#uxsimpp.trafficppy.World.__init__">[1]</a>
+</li>
+          <li><a href="_autosummary/uxsimpp.Vehicle.html#id0">(uxsimpp.Vehicle method)</a>, <a href="_autosummary/uxsimpp.Vehicle.html#uxsimpp.Vehicle.__init__">[1]</a>
+</li>
+          <li><a href="_autosummary/uxsimpp.World.html#id0">(uxsimpp.World method)</a>, <a href="_autosummary/uxsimpp.World.html#uxsimpp.World.__init__">[1]</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="A" class="genindex-section">
+  <h2>A</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="uxsimpp.html#uxsimpp.uxsimpp.adddemand">adddemand() (in module uxsimpp.uxsimpp)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.World.html#uxsimpp.trafficppy.World.adddemand">(uxsimpp.trafficppy.World method)</a>
+</li>
+          <li><a href="_autosummary/uxsimpp.World.html#uxsimpp.World.adddemand">(uxsimpp.World method)</a>
+</li>
+        </ul></li>
+        <li><a href="uxsimpp.html#uxsimpp.uxsimpp.addLink">addLink() (in module uxsimpp.uxsimpp)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.World.html#uxsimpp.trafficppy.World.addLink">(uxsimpp.trafficppy.World method)</a>
+</li>
+          <li><a href="_autosummary/uxsimpp.World.html#uxsimpp.World.addLink">(uxsimpp.World method)</a>
+</li>
+        </ul></li>
+        <li><a href="uxsimpp.html#uxsimpp.uxsimpp.addNode">addNode() (in module uxsimpp.uxsimpp)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.World.html#uxsimpp.trafficppy.World.addNode">(uxsimpp.trafficppy.World method)</a>
+</li>
+          <li><a href="_autosummary/uxsimpp.World.html#uxsimpp.World.addNode">(uxsimpp.World method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="_autosummary/uxsimpp.Link.html#uxsimpp.Link.arrival_curve">arrival_curve (uxsimpp.Link property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Link.html#uxsimpp.trafficppy.Link.arrival_curve">(uxsimpp.trafficppy.Link property)</a>
+</li>
+        </ul></li>
+        <li><a href="_autosummary/uxsimpp.trafficppy.Vehicle.html#uxsimpp.trafficppy.Vehicle.arrival_time">arrival_time (uxsimpp.trafficppy.Vehicle property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.Vehicle.html#uxsimpp.Vehicle.arrival_time">(uxsimpp.Vehicle property)</a>
+</li>
+        </ul></li>
+        <li><a href="_autosummary/uxsimpp.trafficppy.Vehicle.html#uxsimpp.trafficppy.Vehicle.arrival_time_link">arrival_time_link (uxsimpp.trafficppy.Vehicle property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.Vehicle.html#uxsimpp.Vehicle.arrival_time_link">(uxsimpp.Vehicle property)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="C" class="genindex-section">
+  <h2>C</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="_autosummary/uxsimpp.Link.html#uxsimpp.Link.capacity">capacity (uxsimpp.Link property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Link.html#uxsimpp.trafficppy.Link.capacity">(uxsimpp.trafficppy.Link property)</a>
+</li>
+        </ul></li>
+        <li><a href="_autosummary/uxsimpp.Link.html#uxsimpp.Link.capacity_out">capacity_out (uxsimpp.Link property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Link.html#uxsimpp.trafficppy.Link.capacity_out">(uxsimpp.trafficppy.Link property)</a>
+</li>
+        </ul></li>
+        <li><a href="_autosummary/uxsimpp.trafficppy.World.html#uxsimpp.trafficppy.World.check_simulation_ongoing">check_simulation_ongoing() (uxsimpp.trafficppy.World method)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.World.html#uxsimpp.World.check_simulation_ongoing">(uxsimpp.World method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="_autosummary/uxsimpp.Link.html#uxsimpp.Link.cum_arrival">cum_arrival (uxsimpp.Link property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Link.html#uxsimpp.trafficppy.Link.cum_arrival">(uxsimpp.trafficppy.Link property)</a>
+</li>
+        </ul></li>
+        <li><a href="_autosummary/uxsimpp.Link.html#uxsimpp.Link.cum_departure">cum_departure (uxsimpp.Link property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Link.html#uxsimpp.trafficppy.Link.cum_departure">(uxsimpp.trafficppy.Link property)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="D" class="genindex-section">
+  <h2>D</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="_autosummary/uxsimpp.Link.html#uxsimpp.Link.delta">delta (uxsimpp.Link property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Link.html#uxsimpp.trafficppy.Link.delta">(uxsimpp.trafficppy.Link property)</a>
+</li>
+        </ul></li>
+        <li><a href="_autosummary/uxsimpp.trafficppy.World.html#uxsimpp.trafficppy.World.delta_t">delta_t (uxsimpp.trafficppy.World property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.World.html#uxsimpp.World.delta_t">(uxsimpp.World property)</a>
+</li>
+        </ul></li>
+        <li><a href="_autosummary/uxsimpp.trafficppy.World.html#uxsimpp.trafficppy.World.deltan">deltan (uxsimpp.trafficppy.World property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.World.html#uxsimpp.World.deltan">(uxsimpp.World property)</a>
+</li>
+        </ul></li>
+        <li><a href="_autosummary/uxsimpp.trafficppy.World.html#uxsimpp.trafficppy.World.DELTAT">DELTAT (uxsimpp.trafficppy.World property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.World.html#uxsimpp.World.DELTAT">(uxsimpp.World property)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="_autosummary/uxsimpp.Link.html#uxsimpp.Link.departure_curve">departure_curve (uxsimpp.Link property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Link.html#uxsimpp.trafficppy.Link.departure_curve">(uxsimpp.trafficppy.Link property)</a>
+</li>
+        </ul></li>
+        <li><a href="_autosummary/uxsimpp.trafficppy.Vehicle.html#uxsimpp.trafficppy.Vehicle.departure_time">departure_time (uxsimpp.trafficppy.Vehicle property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.Vehicle.html#uxsimpp.Vehicle.departure_time">(uxsimpp.Vehicle property)</a>
+</li>
+        </ul></li>
+        <li><a href="_autosummary/uxsimpp.trafficppy.Vehicle.html#uxsimpp.trafficppy.Vehicle.dest">dest (uxsimpp.trafficppy.Vehicle property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.Vehicle.html#uxsimpp.Vehicle.dest">(uxsimpp.Vehicle property)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="E" class="genindex-section">
+  <h2>E</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="_autosummary/uxsimpp.Link.html#uxsimpp.Link.end_node">end_node (uxsimpp.Link property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Link.html#uxsimpp.trafficppy.Link.end_node">(uxsimpp.trafficppy.Link property)</a>
+</li>
+        </ul></li>
+        <li><a href="uxsimpp.html#uxsimpp.uxsimpp.eq_Link">eq_Link() (in module uxsimpp.uxsimpp)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.World.html#uxsimpp.trafficppy.World.eq_Link">(uxsimpp.trafficppy.World method)</a>
+</li>
+          <li><a href="_autosummary/uxsimpp.World.html#uxsimpp.World.eq_Link">(uxsimpp.World method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="uxsimpp.html#uxsimpp.uxsimpp.eq_tol">eq_tol() (in module uxsimpp.uxsimpp)</a>
+</li>
+        <li><a href="uxsimpp.html#uxsimpp.uxsimpp.exec_simulation">exec_simulation() (in module uxsimpp.uxsimpp)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.World.html#uxsimpp.trafficppy.World.exec_simulation">(uxsimpp.trafficppy.World method)</a>
+</li>
+          <li><a href="_autosummary/uxsimpp.World.html#uxsimpp.World.exec_simulation">(uxsimpp.World method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="F" class="genindex-section">
+  <h2>F</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="_autosummary/uxsimpp.trafficppy.Vehicle.html#uxsimpp.trafficppy.Vehicle.follower">follower (uxsimpp.trafficppy.Vehicle property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.Vehicle.html#uxsimpp.Vehicle.follower">(uxsimpp.Vehicle property)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="G" class="genindex-section">
+  <h2>G</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="_autosummary/uxsimpp.Node.html#uxsimpp.Node.generate">generate() (uxsimpp.Node method)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Node.html#uxsimpp.trafficppy.Node.generate">(uxsimpp.trafficppy.Node method)</a>
+</li>
+        </ul></li>
+        <li><a href="_autosummary/uxsimpp.Node.html#uxsimpp.Node.generation_queue">generation_queue (uxsimpp.Node property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Node.html#uxsimpp.trafficppy.Node.generation_queue">(uxsimpp.trafficppy.Node property)</a>
+</li>
+        </ul></li>
+        <li><a href="_autosummary/uxsimpp.trafficppy.World.html#uxsimpp.trafficppy.World.get_link">get_link() (uxsimpp.trafficppy.World method)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.World.html#uxsimpp.World.get_link">(uxsimpp.World method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="_autosummary/uxsimpp.trafficppy.World.html#uxsimpp.trafficppy.World.get_node">get_node() (uxsimpp.trafficppy.World method)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.World.html#uxsimpp.World.get_node">(uxsimpp.World method)</a>
+</li>
+        </ul></li>
+        <li><a href="_autosummary/uxsimpp.trafficppy.World.html#uxsimpp.trafficppy.World.get_vehicle">get_vehicle() (uxsimpp.trafficppy.World method)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.World.html#uxsimpp.World.get_vehicle">(uxsimpp.World method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="I" class="genindex-section">
+  <h2>I</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="_autosummary/uxsimpp.Link.html#uxsimpp.Link.id">id (uxsimpp.Link property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.Node.html#uxsimpp.Node.id">(uxsimpp.Node property)</a>
+</li>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Link.html#uxsimpp.trafficppy.Link.id">(uxsimpp.trafficppy.Link property)</a>
+</li>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Node.html#uxsimpp.trafficppy.Node.id">(uxsimpp.trafficppy.Node property)</a>
+</li>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Vehicle.html#uxsimpp.trafficppy.Vehicle.id">(uxsimpp.trafficppy.Vehicle property)</a>
+</li>
+          <li><a href="_autosummary/uxsimpp.Vehicle.html#uxsimpp.Vehicle.id">(uxsimpp.Vehicle property)</a>
+</li>
+        </ul></li>
+        <li><a href="_autosummary/uxsimpp.Node.html#uxsimpp.Node.in_links">in_links (uxsimpp.Node property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Node.html#uxsimpp.trafficppy.Node.in_links">(uxsimpp.trafficppy.Node property)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="_autosummary/uxsimpp.Node.html#uxsimpp.Node.incoming_vehicles">incoming_vehicles (uxsimpp.Node property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Node.html#uxsimpp.trafficppy.Node.incoming_vehicles">(uxsimpp.trafficppy.Node property)</a>
+</li>
+        </ul></li>
+        <li><a href="uxsimpp.html#uxsimpp.uxsimpp.inflow">inflow() (in module uxsimpp.uxsimpp)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.Link.html#uxsimpp.Link.inflow">(uxsimpp.Link method)</a>
+</li>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Link.html#uxsimpp.trafficppy.Link.inflow">(uxsimpp.trafficppy.Link method)</a>
+</li>
+        </ul></li>
+        <li><a href="_autosummary/uxsimpp.trafficppy.World.html#uxsimpp.trafficppy.World.initialize_adj_matrix">initialize_adj_matrix() (uxsimpp.trafficppy.World method)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.World.html#uxsimpp.World.initialize_adj_matrix">(uxsimpp.World method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="K" class="genindex-section">
+  <h2>K</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="_autosummary/uxsimpp.Link.html#uxsimpp.Link.kappa">kappa (uxsimpp.Link property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Link.html#uxsimpp.trafficppy.Link.kappa">(uxsimpp.trafficppy.Link property)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="L" class="genindex-section">
+  <h2>L</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="_autosummary/uxsimpp.trafficppy.Vehicle.html#uxsimpp.trafficppy.Vehicle.leader">leader (uxsimpp.trafficppy.Vehicle property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.Vehicle.html#uxsimpp.Vehicle.leader">(uxsimpp.Vehicle property)</a>
+</li>
+        </ul></li>
+        <li><a href="_autosummary/uxsimpp.Link.html#uxsimpp.Link.length">length (uxsimpp.Link property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Link.html#uxsimpp.trafficppy.Link.length">(uxsimpp.trafficppy.Link property)</a>
+</li>
+        </ul></li>
+        <li><a href="_autosummary/uxsimpp.Link.html#uxsimpp.Link">Link (class in uxsimpp)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Link.html#uxsimpp.trafficppy.Link">(class in uxsimpp.trafficppy)</a>
+</li>
+        </ul></li>
+        <li><a href="_autosummary/uxsimpp.trafficppy.Vehicle.html#uxsimpp.trafficppy.Vehicle.link">link (uxsimpp.trafficppy.Vehicle property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.Vehicle.html#uxsimpp.Vehicle.link">(uxsimpp.Vehicle property)</a>
+</li>
+        </ul></li>
+        <li><a href="uxsimpp.html#uxsimpp.uxsimpp.link__repr__">link__repr__() (in module uxsimpp.uxsimpp)</a>
+</li>
+        <li><a href="uxsimpp.html#uxsimpp.uxsimpp.link_inflow">link_inflow() (in module uxsimpp.uxsimpp)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.World.html#uxsimpp.trafficppy.World.link_inflow">(uxsimpp.trafficppy.World method)</a>
+</li>
+          <li><a href="_autosummary/uxsimpp.World.html#uxsimpp.World.link_inflow">(uxsimpp.World method)</a>
+</li>
+        </ul></li>
+        <li><a href="uxsimpp.html#uxsimpp.uxsimpp.link_outflow">link_outflow() (in module uxsimpp.uxsimpp)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.World.html#uxsimpp.trafficppy.World.link_outflow">(uxsimpp.trafficppy.World method)</a>
+</li>
+          <li><a href="_autosummary/uxsimpp.World.html#uxsimpp.World.link_outflow">(uxsimpp.World method)</a>
+</li>
+        </ul></li>
+        <li><a href="uxsimpp.html#uxsimpp.uxsimpp.Link_resolve">Link_resolve() (in module uxsimpp.uxsimpp)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.World.html#uxsimpp.trafficppy.World.Link_resolve">(uxsimpp.trafficppy.World method)</a>
+</li>
+          <li><a href="_autosummary/uxsimpp.World.html#uxsimpp.World.Link_resolve">(uxsimpp.World method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="_autosummary/uxsimpp.trafficppy.World.html#uxsimpp.trafficppy.World.LINKS">LINKS (uxsimpp.trafficppy.World property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.World.html#uxsimpp.World.LINKS">(uxsimpp.World property)</a>
+</li>
+        </ul></li>
+        <li><a href="_autosummary/uxsimpp.trafficppy.Vehicle.html#uxsimpp.trafficppy.Vehicle.links_preferred">links_preferred (uxsimpp.trafficppy.Vehicle property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.Vehicle.html#uxsimpp.Vehicle.links_preferred">(uxsimpp.Vehicle property)</a>
+</li>
+        </ul></li>
+        <li><a href="_autosummary/uxsimpp.trafficppy.Vehicle.html#uxsimpp.trafficppy.Vehicle.log_link">log_link (uxsimpp.trafficppy.Vehicle property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.Vehicle.html#uxsimpp.Vehicle.log_link">(uxsimpp.Vehicle property)</a>
+</li>
+        </ul></li>
+        <li><a href="_autosummary/uxsimpp.trafficppy.Vehicle.html#uxsimpp.trafficppy.Vehicle.log_state">log_state (uxsimpp.trafficppy.Vehicle property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.Vehicle.html#uxsimpp.Vehicle.log_state">(uxsimpp.Vehicle property)</a>
+</li>
+        </ul></li>
+        <li><a href="_autosummary/uxsimpp.trafficppy.Vehicle.html#uxsimpp.trafficppy.Vehicle.log_t">log_t (uxsimpp.trafficppy.Vehicle property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.Vehicle.html#uxsimpp.Vehicle.log_t">(uxsimpp.Vehicle property)</a>
+</li>
+        </ul></li>
+        <li><a href="_autosummary/uxsimpp.trafficppy.Vehicle.html#uxsimpp.trafficppy.Vehicle.log_v">log_v (uxsimpp.trafficppy.Vehicle property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.Vehicle.html#uxsimpp.Vehicle.log_v">(uxsimpp.Vehicle property)</a>
+</li>
+        </ul></li>
+        <li><a href="_autosummary/uxsimpp.trafficppy.Vehicle.html#uxsimpp.trafficppy.Vehicle.log_x">log_x (uxsimpp.trafficppy.Vehicle property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.Vehicle.html#uxsimpp.Vehicle.log_x">(uxsimpp.Vehicle property)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="M" class="genindex-section">
+  <h2>M</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="_autosummary/uxsimpp.trafficppy.World.html#uxsimpp.trafficppy.World.main_loop">main_loop() (uxsimpp.trafficppy.World method)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.World.html#uxsimpp.World.main_loop">(uxsimpp.World method)</a>
+</li>
+        </ul></li>
+        <li><a href="_autosummary/uxsimpp.Link.html#uxsimpp.Link.merge_priority">merge_priority (uxsimpp.Link property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Link.html#uxsimpp.trafficppy.Link.merge_priority">(uxsimpp.trafficppy.Link property)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    module
+
+        <ul>
+          <li><a href="uxsimpp.html#module-uxsimpp.uxsimpp">uxsimpp.uxsimpp</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="N" class="genindex-section">
+  <h2>N</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="_autosummary/uxsimpp.Link.html#uxsimpp.Link.name">name (uxsimpp.Link property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.Node.html#uxsimpp.Node.name">(uxsimpp.Node property)</a>
+</li>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Link.html#uxsimpp.trafficppy.Link.name">(uxsimpp.trafficppy.Link property)</a>
+</li>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Node.html#uxsimpp.trafficppy.Node.name">(uxsimpp.trafficppy.Node property)</a>
+</li>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Vehicle.html#uxsimpp.trafficppy.Vehicle.name">(uxsimpp.trafficppy.Vehicle property)</a>
+</li>
+          <li><a href="_autosummary/uxsimpp.trafficppy.World.html#uxsimpp.trafficppy.World.name">(uxsimpp.trafficppy.World property)</a>
+</li>
+          <li><a href="_autosummary/uxsimpp.Vehicle.html#uxsimpp.Vehicle.name">(uxsimpp.Vehicle property)</a>
+</li>
+          <li><a href="_autosummary/uxsimpp.World.html#uxsimpp.World.name">(uxsimpp.World property)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="uxsimpp.html#uxsimpp.uxsimpp.newWorld">newWorld() (in module uxsimpp.uxsimpp)</a>
+</li>
+        <li><a href="_autosummary/uxsimpp.Node.html#uxsimpp.Node">Node (class in uxsimpp)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Node.html#uxsimpp.trafficppy.Node">(class in uxsimpp.trafficppy)</a>
+</li>
+        </ul></li>
+        <li><a href="uxsimpp.html#uxsimpp.uxsimpp.node__repr__">node__repr__() (in module uxsimpp.uxsimpp)</a>
+</li>
+        <li><a href="_autosummary/uxsimpp.trafficppy.World.html#uxsimpp.trafficppy.World.NODES">NODES (uxsimpp.trafficppy.World property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.World.html#uxsimpp.World.NODES">(uxsimpp.World property)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="O" class="genindex-section">
+  <h2>O</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="_autosummary/uxsimpp.trafficppy.Vehicle.html#uxsimpp.trafficppy.Vehicle.orig">orig (uxsimpp.trafficppy.Vehicle property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.Vehicle.html#uxsimpp.Vehicle.orig">(uxsimpp.Vehicle property)</a>
+</li>
+        </ul></li>
+        <li><a href="_autosummary/uxsimpp.Node.html#uxsimpp.Node.out_links">out_links (uxsimpp.Node property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Node.html#uxsimpp.trafficppy.Node.out_links">(uxsimpp.trafficppy.Node property)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="uxsimpp.html#uxsimpp.uxsimpp.outflow">outflow() (in module uxsimpp.uxsimpp)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.Link.html#uxsimpp.Link.outflow">(uxsimpp.Link method)</a>
+</li>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Link.html#uxsimpp.trafficppy.Link.outflow">(uxsimpp.trafficppy.Link method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="P" class="genindex-section">
+  <h2>P</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="uxsimpp.html#uxsimpp.uxsimpp.plot_cumcurves">plot_cumcurves() (in module uxsimpp.uxsimpp)</a>
+</li>
+        <li><a href="_autosummary/uxsimpp.trafficppy.World.html#uxsimpp.trafficppy.World.print_scenario_stats">print_scenario_stats() (uxsimpp.trafficppy.World method)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.World.html#uxsimpp.World.print_scenario_stats">(uxsimpp.World method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="_autosummary/uxsimpp.trafficppy.World.html#uxsimpp.trafficppy.World.print_simple_results">print_simple_results() (uxsimpp.trafficppy.World method)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.World.html#uxsimpp.World.print_simple_results">(uxsimpp.World method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="R" class="genindex-section">
+  <h2>R</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="_autosummary/uxsimpp.trafficppy.Vehicle.html#uxsimpp.trafficppy.Vehicle.route_adaptive">route_adaptive (uxsimpp.trafficppy.Vehicle property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.Vehicle.html#uxsimpp.Vehicle.route_adaptive">(uxsimpp.Vehicle property)</a>
+</li>
+        </ul></li>
+        <li><a href="_autosummary/uxsimpp.trafficppy.Vehicle.html#uxsimpp.trafficppy.Vehicle.route_choice_flag_on_link">route_choice_flag_on_link (uxsimpp.trafficppy.Vehicle property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.Vehicle.html#uxsimpp.Vehicle.route_choice_flag_on_link">(uxsimpp.Vehicle property)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="_autosummary/uxsimpp.trafficppy.Vehicle.html#uxsimpp.trafficppy.Vehicle.route_next_link">route_next_link (uxsimpp.trafficppy.Vehicle property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.Vehicle.html#uxsimpp.Vehicle.route_next_link">(uxsimpp.Vehicle property)</a>
+</li>
+        </ul></li>
+        <li><a href="_autosummary/uxsimpp.trafficppy.Vehicle.html#uxsimpp.trafficppy.Vehicle.route_preference">route_preference (uxsimpp.trafficppy.Vehicle property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.Vehicle.html#uxsimpp.Vehicle.route_preference">(uxsimpp.Vehicle property)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="S" class="genindex-section">
+  <h2>S</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="_autosummary/uxsimpp.Link.html#uxsimpp.Link.set_travel_time">set_travel_time() (uxsimpp.Link method)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Link.html#uxsimpp.trafficppy.Link.set_travel_time">(uxsimpp.trafficppy.Link method)</a>
+</li>
+        </ul></li>
+        <li><a href="uxsimpp.html#uxsimpp.uxsimpp.show_variables">show_variables() (in module uxsimpp.uxsimpp)</a>
+</li>
+        <li><a href="_autosummary/uxsimpp.Link.html#uxsimpp.Link.signal_group">signal_group (uxsimpp.Link property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Link.html#uxsimpp.trafficppy.Link.signal_group">(uxsimpp.trafficppy.Link property)</a>
+</li>
+        </ul></li>
+        <li><a href="_autosummary/uxsimpp.Node.html#uxsimpp.Node.signal_intervals">signal_intervals (uxsimpp.Node property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Node.html#uxsimpp.trafficppy.Node.signal_intervals">(uxsimpp.trafficppy.Node property)</a>
+</li>
+        </ul></li>
+        <li><a href="_autosummary/uxsimpp.Node.html#uxsimpp.Node.signal_offset">signal_offset (uxsimpp.Node property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Node.html#uxsimpp.trafficppy.Node.signal_offset">(uxsimpp.trafficppy.Node property)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="_autosummary/uxsimpp.Node.html#uxsimpp.Node.signal_phase">signal_phase (uxsimpp.Node property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Node.html#uxsimpp.trafficppy.Node.signal_phase">(uxsimpp.trafficppy.Node property)</a>
+</li>
+        </ul></li>
+        <li><a href="_autosummary/uxsimpp.Node.html#uxsimpp.Node.signal_t">signal_t (uxsimpp.Node property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Node.html#uxsimpp.trafficppy.Node.signal_t">(uxsimpp.trafficppy.Node property)</a>
+</li>
+        </ul></li>
+        <li><a href="_autosummary/uxsimpp.Link.html#uxsimpp.Link.start_node">start_node (uxsimpp.Link property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Link.html#uxsimpp.trafficppy.Link.start_node">(uxsimpp.trafficppy.Link property)</a>
+</li>
+        </ul></li>
+        <li><a href="_autosummary/uxsimpp.trafficppy.Vehicle.html#uxsimpp.trafficppy.Vehicle.state">state (uxsimpp.trafficppy.Vehicle property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.Vehicle.html#uxsimpp.Vehicle.state">(uxsimpp.Vehicle property)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="T" class="genindex-section">
+  <h2>T</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="_autosummary/uxsimpp.trafficppy.World.html#uxsimpp.trafficppy.World.t_max">t_max (uxsimpp.trafficppy.World property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.World.html#uxsimpp.World.t_max">(uxsimpp.World property)</a>
+</li>
+        </ul></li>
+        <li><a href="_autosummary/uxsimpp.Link.html#uxsimpp.Link.tau">tau (uxsimpp.Link property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Link.html#uxsimpp.trafficppy.Link.tau">(uxsimpp.trafficppy.Link property)</a>
+</li>
+        </ul></li>
+        <li><a href="_autosummary/uxsimpp.trafficppy.World.html#uxsimpp.trafficppy.World.time">time (uxsimpp.trafficppy.World property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.World.html#uxsimpp.World.time">(uxsimpp.World property)</a>
+</li>
+        </ul></li>
+        <li><a href="_autosummary/uxsimpp.trafficppy.World.html#uxsimpp.trafficppy.World.timestep">timestep (uxsimpp.trafficppy.World property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.World.html#uxsimpp.World.timestep">(uxsimpp.World property)</a>
+</li>
+        </ul></li>
+        <li><a href="_autosummary/uxsimpp.trafficppy.World.html#uxsimpp.trafficppy.World.TMAX">TMAX (uxsimpp.trafficppy.World property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.World.html#uxsimpp.World.TMAX">(uxsimpp.World property)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="_autosummary/uxsimpp.Node.html#uxsimpp.Node.transfer">transfer() (uxsimpp.Node method)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Node.html#uxsimpp.trafficppy.Node.transfer">(uxsimpp.trafficppy.Node method)</a>
+</li>
+        </ul></li>
+        <li><a href="_autosummary/uxsimpp.trafficppy.Vehicle.html#uxsimpp.trafficppy.Vehicle.travel_time">travel_time (uxsimpp.trafficppy.Vehicle property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.Vehicle.html#uxsimpp.Vehicle.travel_time">(uxsimpp.Vehicle property)</a>
+</li>
+        </ul></li>
+        <li><a href="_autosummary/uxsimpp.Link.html#uxsimpp.Link.traveltime_instant">traveltime_instant (uxsimpp.Link property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Link.html#uxsimpp.trafficppy.Link.traveltime_instant">(uxsimpp.trafficppy.Link property)</a>
+</li>
+        </ul></li>
+        <li><a href="_autosummary/uxsimpp.Link.html#uxsimpp.Link.traveltime_real">traveltime_real (uxsimpp.Link property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Link.html#uxsimpp.trafficppy.Link.traveltime_real">(uxsimpp.trafficppy.Link property)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="U" class="genindex-section">
+  <h2>U</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="_autosummary/uxsimpp.Link.html#uxsimpp.Link.u">u (uxsimpp.Link property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Link.html#uxsimpp.trafficppy.Link.u">(uxsimpp.trafficppy.Link property)</a>
+</li>
+        </ul></li>
+        <li><a href="_autosummary/uxsimpp.Link.html#uxsimpp.Link.update">update() (uxsimpp.Link method)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Link.html#uxsimpp.trafficppy.Link.update">(uxsimpp.trafficppy.Link method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="_autosummary/uxsimpp.trafficppy.World.html#uxsimpp.trafficppy.World.update_adj_time_matrix">update_adj_time_matrix() (uxsimpp.trafficppy.World method)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.World.html#uxsimpp.World.update_adj_time_matrix">(uxsimpp.World method)</a>
+</li>
+        </ul></li>
+        <li>
+    uxsimpp.uxsimpp
+
+        <ul>
+          <li><a href="uxsimpp.html#module-uxsimpp.uxsimpp">module</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="V" class="genindex-section">
+  <h2>V</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="_autosummary/uxsimpp.trafficppy.Vehicle.html#uxsimpp.trafficppy.Vehicle.v">v (uxsimpp.trafficppy.Vehicle property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.Vehicle.html#uxsimpp.Vehicle.v">(uxsimpp.Vehicle property)</a>
+</li>
+        </ul></li>
+        <li><a href="uxsimpp.html#uxsimpp.uxsimpp.veh__repr__">veh__repr__() (in module uxsimpp.uxsimpp)</a>
+</li>
+        <li><a href="_autosummary/uxsimpp.Vehicle.html#uxsimpp.Vehicle">Vehicle (class in uxsimpp)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Vehicle.html#uxsimpp.trafficppy.Vehicle">(class in uxsimpp.trafficppy)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="_autosummary/uxsimpp.Link.html#uxsimpp.Link.vehicles">vehicles (uxsimpp.Link property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Link.html#uxsimpp.trafficppy.Link.vehicles">(uxsimpp.trafficppy.Link property)</a>
+</li>
+        </ul></li>
+        <li><a href="_autosummary/uxsimpp.trafficppy.World.html#uxsimpp.trafficppy.World.VEHICLES">VEHICLES (uxsimpp.trafficppy.World property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.World.html#uxsimpp.World.VEHICLES">(uxsimpp.World property)</a>
+</li>
+        </ul></li>
+        <li><a href="_autosummary/uxsimpp.Link.html#uxsimpp.Link.vmax">vmax (uxsimpp.Link property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Link.html#uxsimpp.trafficppy.Link.vmax">(uxsimpp.trafficppy.Link property)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="W" class="genindex-section">
+  <h2>W</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="_autosummary/uxsimpp.Link.html#uxsimpp.Link.W">W (uxsimpp.Link property)</a>
+</li>
+        <li><a href="_autosummary/uxsimpp.Link.html#uxsimpp.Link.w">w (uxsimpp.Link property)</a>
+</li>
+        <li><a href="_autosummary/uxsimpp.Node.html#uxsimpp.Node.W">W (uxsimpp.Node property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Link.html#uxsimpp.trafficppy.Link.W">(uxsimpp.trafficppy.Link property)</a>
+</li>
+        </ul></li>
+        <li><a href="_autosummary/uxsimpp.trafficppy.Link.html#uxsimpp.trafficppy.Link.w">w (uxsimpp.trafficppy.Link property)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="_autosummary/uxsimpp.trafficppy.Node.html#uxsimpp.trafficppy.Node.W">W (uxsimpp.trafficppy.Node property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Vehicle.html#uxsimpp.trafficppy.Vehicle.W">(uxsimpp.trafficppy.Vehicle property)</a>
+</li>
+          <li><a href="_autosummary/uxsimpp.Vehicle.html#uxsimpp.Vehicle.W">(uxsimpp.Vehicle property)</a>
+</li>
+        </ul></li>
+        <li><a href="_autosummary/uxsimpp.World.html#uxsimpp.World">World (class in uxsimpp)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.World.html#uxsimpp.trafficppy.World">(class in uxsimpp.trafficppy)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="X" class="genindex-section">
+  <h2>X</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="_autosummary/uxsimpp.Node.html#uxsimpp.Node.x">x (uxsimpp.Node property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Node.html#uxsimpp.trafficppy.Node.x">(uxsimpp.trafficppy.Node property)</a>
+</li>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Vehicle.html#uxsimpp.trafficppy.Vehicle.x">(uxsimpp.trafficppy.Vehicle property)</a>
+</li>
+          <li><a href="_autosummary/uxsimpp.Vehicle.html#uxsimpp.Vehicle.x">(uxsimpp.Vehicle property)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="_autosummary/uxsimpp.trafficppy.Vehicle.html#uxsimpp.trafficppy.Vehicle.x_next">x_next (uxsimpp.trafficppy.Vehicle property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.Vehicle.html#uxsimpp.Vehicle.x_next">(uxsimpp.Vehicle property)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="Y" class="genindex-section">
+  <h2>Y</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="_autosummary/uxsimpp.Node.html#uxsimpp.Node.y">y (uxsimpp.Node property)</a>
+
+        <ul>
+          <li><a href="_autosummary/uxsimpp.trafficppy.Node.html#uxsimpp.trafficppy.Node.y">(uxsimpp.trafficppy.Node property)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2025 Toru Seo
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=f8c80a57"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=5fa4622c"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    </body>
+</html>
