@@ -132,6 +132,13 @@ bool example_function(int param1, string param2 = "default") {
 }
 ```
 
+## Python virtual environment
+
+When using Python in Linux (including WSL), always use the virtual environment `venv` that can be activated by
+```bash
+source venv/bin/activate
+```
+
 ## Other tips
 
 - Adding new dependencies is not recommended. Requests users permission if necessary.
