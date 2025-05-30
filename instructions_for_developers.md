@@ -25,7 +25,7 @@ The directory structure is as follows.
 The important files are as follows.
 
 - /instruction_for_developers.md : This document
-- /BUILD.jp.md : How to build (in Japanese)
+- /BUILD.md : How to build
 - /pypoject.toml : Project file for the Python package
 - /CMakeLists.txt : Build file for C++ codes
 - /uxsimpp/__init__.py : The init code of UXsim++ package
@@ -34,7 +34,7 @@ The important files are as follows.
 - /uxsimpp/trafficpp/traffi.cpp : The main code of C++ simulator trafficpp
 - /uxsimpp/trafficpp/traffi.h : The header file of C++ simulator trafficpp
 
-These structures MUST be preserved under any circumstances.
+These structures must be preserved under any circumstances.
 
 ## Critical Files - Handle with Extra Care
 
@@ -43,15 +43,37 @@ Files that require special attention when modifying:
 - bindings.cpp: Python-C++ interface
 - uxsimpp.py: Main Python API
 
+## Tests - this is nessesary
+
+When updating the C++ codes of trafficpp, always confirm that the updates pass the following C++ test first.
+This C++ test needs to be executed once a certain portion of the functionality implementation is completed, even if not all tasks from the user have been completed.
+
+```
+g++ tests/test_03_gridnetwork.cpp && ./a.out
+```
+
+After confirming the test pass, always confirm that the updates pass the following Python test.
+This is an integration test that confirms the soundness of the entire module of UXsim++.
+
+```
+pip install -e . && pytest tests/test_verifications.py
+```
+
+When updating the Python code of UXsim++, always confirm that the updates pass the above Python test as well.
+
+
 ## Coding styles
 
 ### Naming Conventions
 
-- C++: PascalCase for classes, snake_case for functions and variables
-- Python: PEP 8 compliance (snake_case for functions/variables, PascalCase for classes)
+PascalCase for classes, snake_case for functions and variables for both of Python and C++.
 
 ### Comments
-Python docstring MUST be written using the Numpy style as follows.
+
+Do not break a long sentence across multiple lines. 
+Only insert line breaks at the end of a complete sentence.
+
+Python docstring must be written using the Numpy style as follows.
 
 ```python
 def example_function(param1, param2="default"):
@@ -72,7 +94,7 @@ def example_function(param1, param2="default"):
     return True
 ```
 
-For pybind11 bindings, the docstring MUST be written in the same way as above.
+For pybind11 bindings, the docstring must be written in the same way as above.
 For example, the following is a correct docstring for a pybind11 binding.
 
 ```cpp
@@ -94,8 +116,8 @@ py::function("example_function", &example_function,
     )docstring");
 ```
 
-For C++ codes, the code MUST follow the Doxygen style.
-The function documentation MUST be written in the following way.
+For C++ codes, the code must follow the Doxygen style.
+The function documentation must be written in the following way.
 
 ```cpp
 /**
@@ -110,27 +132,8 @@ bool example_function(int param1, string param2 = "default") {
 }
 ```
 
-## Tests
-
-When updating the C++ codes of trafficpp, you MUST confirm that the updates pass the following C++ test first.
-
-```
-g++ tests/test_03_gridnetwork.cpp
-./a.out   #for Windows, `./a.exe`
-```
-
-After confirming the test pass, you MUST confirm that the updates pass the following Python test.
-This is to confirm the soundness of the entire module of UXsim++.
-
-```
-pip install -e .
-pytest tests/test_verifications.py
-```
-
-When updating the Python code of UXsim++, you MUST confirm that the updates pass the above Python test as well.
-
 ## Other tips
 
 - Adding new dependencies is not recommended. Requests users permission if necessary.
-- Comments should be simple and concise. 
+- Comments should be simple and concise. Simple codes do not require comments.
 - Let the code fail fast with standard Python/C++ errors unless absolutely necessary. Avoid try-catch blocks or defensive programming with if-checks before operations

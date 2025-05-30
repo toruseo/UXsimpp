@@ -213,3 +213,4 @@ p[0-9]*_*.py
 demos_and_examples/uxsim/*
 /*.pkl
 n[0-1]*_*.ipynb
+_refs/*
