@@ -93,5 +93,7 @@ autoclass_content = 'both'
 
 autodoc_default_options = {
     'members': True,
-    #'exclude-members': '__init__',
+    'undoc-members': True,
+    'show-inheritance': True,
+    'special-members': '__init__',
 }
