@@ -151,7 +151,37 @@ PYBIND11_MODULE(trafficppy, m) {
           py::arg("print_mode"),
           py::arg("random_seed"),
           py::arg("vehicle_log_mode"),
-          "Create a new World simulation object.");
+          R"docstring(
+          Create a World (simulation environment).
+
+          Parameters
+          ----------
+          world_name : str
+              The name of the world.
+          t_max : float
+              The simulation duration.
+          delta_n : float
+              The platoon size.
+          tau : float
+              The reaction time.
+          duo_update_time : float
+              The time interval for route choice update.
+          duo_update_weight : float
+              The update weight for route choice.
+          route_choice_uncertainty : float
+              The noise in route choice.
+          print_mode : int
+              Whether print the simulation progress or not.
+          random_seed : int
+              The random seed.
+          vehicle_log_mode : bool
+              Whether save vehicle data or not.
+
+          Returns
+          -------
+          World
+              World simulation object.
+          )docstring");
 
     m.def("add_node", &add_node,
           py::arg("world"),
@@ -160,7 +190,24 @@ PYBIND11_MODULE(trafficppy, m) {
           py::arg("y"),
           py::arg("signal_intervals"),
           py::arg("signal_offset"),
-          "Add a new Node to the World");
+          R"docstring(
+          Add a node to the world.
+
+          Parameters
+          ----------
+          world : World
+              The world to which the node belongs.
+          node_name : str
+              The name of the node.
+          x : float
+              The x-coordinate of the node.
+          y : float
+              The y-coordinate of the node.
+          signal_intervals : list of float
+              A list representing the signal at the node.
+          signal_offset : float
+              The offset of the signal.
+          )docstring");
 
     m.def("add_link", &add_link,
           py::arg("world"),
@@ -173,7 +220,32 @@ PYBIND11_MODULE(trafficppy, m) {
           py::arg("merge_priority"),
           py::arg("capacity_out"),
           py::arg("signal_group"),
-          "Add a new Link to the World");
+          R"docstring(
+          Add a link to the world.
+
+          Parameters
+          ----------
+          world : World
+              The world to which the link belongs.
+          link_name : str
+              The name of the link.
+          start_node_name : str
+              The name of the start node.
+          end_node_name : str
+              The name of the end node.
+          vmax : float
+              The free flow speed on the link.
+          kappa : float
+              The jam density on the link.
+          length : float
+              The length of the link.
+          merge_priority : float
+              The priority of the link when merging.
+          capacity_out : float
+              The capacity out of the link.
+          signal_group : list of int
+              The signal group(s) to which the link belongs.
+          )docstring");
 
     m.def("add_demand", &add_demand,
           py::arg("world"),
@@ -183,7 +255,26 @@ PYBIND11_MODULE(trafficppy, m) {
           py::arg("end_t"),
           py::arg("flow"),
           py::arg("links_preferred_str"),
-          "Add demand (vehicle generation) in the World");
+          R"docstring(
+          Add demand (vehicle generation) to the world.
+
+          Parameters
+          ----------
+          world : World
+              The world to which the demand belongs.
+          orig_name : str
+              The origin node.
+          dest_name : str
+              The destination node.
+          start_t : float
+              The start time of demand.
+          end_t : float
+              The end time of demand.
+          flow : float
+              The flow rate of vehicles.
+          links_preferred_str : list of str
+              The names of the links the vehicles prefer.
+          )docstring");
 
     //
     // 2) MARK: World

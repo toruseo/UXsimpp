@@ -32,6 +32,35 @@ def newWorld(name="",
              print_mode=True,
              random_seed=None,
              vehicle_detailed_log=1):
+    """
+    Create a World (simulation environment).
+
+    Parameters
+    ----------
+    name : str, optional
+        The name of the world, default is empty string.
+    tmax : float, optional
+        The simulation duration, default is 3600 seconds.
+    deltan : int, optional
+        The platoon size, default is 5 vehicles.
+    tau : float, optional
+        The reaction time, default is 1 second.
+    duo_update_time : float, optional
+        The time interval for route choice update, default is 600 seconds.
+    duo_update_weight : float, optional
+        The update weight for route choice, default is 0.5.
+    print_mode : bool, optional
+        Whether print the simulation progress or not, default is True.
+    random_seed : int or None, optional
+        The random seed, default is None.
+    vehicle_detailed_log : int, optional
+        Whether save vehicle data or not, default is 1.
+
+    Returns
+    -------
+    World
+        World simulation object.
+    """
     
     if random_seed is None:
         random_seed = random.randint(0, 2**8)
@@ -52,11 +81,65 @@ def newWorld(name="",
     return W
 
 def addNode(W, name, x, y, signal_intervals=[0], signal_offset=0):
+    """
+    Add a node to the world.
+
+    Parameters
+    ----------
+    W : World
+        The world to which the node belongs.
+    name : str
+        The name of the node.
+    x : float
+        The x-coordinate of the node.
+    y : float
+        The y-coordinate of the node.
+    signal_intervals : list of float, optional
+        A list representing the signal at the node, default is [0].
+    signal_offset : float, optional
+        The offset of the signal, default is 0.
+
+    Returns
+    -------
+    Node
+        The created node.
+    """
     add_node(W, name, x, y, signal_intervals, signal_offset)
     return W.get_node(name)
 World.addNode = addNode
 
 def addLink(W, name, start_node, end_node, length, free_flow_speed=20, jam_density=0.2, merge_priority=1, capacity_out=-1, signal_group=[0]):
+    """
+    Add a link to the world.
+
+    Parameters
+    ----------
+    W : World
+        The world to which the link belongs.
+    name : str
+        The name of the link.
+    start_node : str or Node
+        The name of the start node of the link.
+    end_node : str or Node
+        The name of the end node of the link.
+    length : float
+        The length of the link.
+    free_flow_speed : float, optional
+        The free flow speed on the link, default is 20.
+    jam_density : float, optional
+        The jam density on the link, default is 0.2.
+    merge_priority : float, optional
+        The priority of the link when merging, default is 1.
+    capacity_out : float, optional
+        The capacity out of the link, default is -1 (unlimited).
+    signal_group : int or list, optional
+        The signal group(s) to which the link belongs, default is [0].
+
+    Returns
+    -------
+    Link
+        The created link.
+    """
     if type(start_node) == Node:
         start_node = start_node.name
     if type(end_node) == Node:
@@ -72,6 +155,26 @@ def addLink(W, name, start_node, end_node, length, free_flow_speed=20, jam_densi
 World.addLink = addLink
 
 def adddemand(W, origin, destination, start_time, end_time, flow, links_preferred_list=[]):
+    """
+    Add demand (vehicle generation) to the world.
+
+    Parameters
+    ----------
+    W : World
+        The world to which the demand belongs.
+    origin : str or Node
+        The origin node.
+    destination : str or Node
+        The destination node.
+    start_time : float
+        The start time of demand.
+    end_time : float
+        The end time of demand.
+    flow : float
+        The flow rate of vehicles.
+    links_preferred_list : list of str or Link, optional
+        The names of the links the vehicles prefer, default is empty list.
+    """
     if type(origin) == Node:
         origin = origin.name
     if type(destination) == Node:
@@ -126,6 +229,18 @@ World.eq_Link = eq_Link #TODO: Link.__eq__とLink.__hash__をオーバーライ�
 ## MARK: シミュ実行関数
 
 def exec_simulation(W, duration_t=-1, until_t=-1):
+    """
+    Execute the simulation.
+
+    Parameters
+    ----------
+    W : World
+        The world simulation object.
+    duration_t : float, optional
+        Duration to run simulation, default is -1 (until completion).
+    until_t : float, optional
+        Time to run simulation until, default is -1 (until completion).
+    """
     W.initialize_adj_matrix()
     W.main_loop(duration_t, until_t)
 World.exec_simulation = exec_simulation
