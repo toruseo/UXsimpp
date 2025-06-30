@@ -43,7 +43,7 @@ Files that require special attention when modifying:
 - bindings.cpp: Python-C++ interface
 - uxsimpp.py: Main Python API
 
-## Tests - this is nessesary
+## Tests - this is necessary
 
 When updating the C++ codes of trafficpp, always confirm that the updates pass the following C++ test first.
 This C++ test needs to be executed once a certain portion of the functionality implementation is completed, even if not all tasks from the user have been completed.
@@ -56,7 +56,7 @@ After confirming the test pass, always confirm that the updates pass the followi
 This is an integration test that confirms the soundness of the entire module of UXsim++.
 
 ```
-pip install -e . && pytest tests/test_verifications.py
+pip install -e . && pytest tests/test_verification.py
 ```
 
 When updating the Python code of UXsim++, always confirm that the updates pass the above Python test as well.

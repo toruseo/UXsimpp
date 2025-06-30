@@ -623,51 +623,21 @@ void World::update_adj_time_matrix(){
     }
 }
 
-// pair<vector<vector<double>>, vector<vector<int>>> World::route_search_all(const vector<vector<double>> &adj, double infty){
-//     int nsize = (int)adj.size();
-//     if (std::fabs(infty) < 1e-9){
-//         infty = 1e15; // large
-//     }
-//     vector<vector<double>> dist(nsize, vector<double>(nsize, infty));
-//     vector<vector<int>> next_hop(nsize, vector<int>(nsize, -1));
-
-//     // init
-//     for (int i = 0; i < nsize; i++){
-//         for (int j = 0; j < nsize; j++){
-//             if (adj[i][j] > 0.0){
-//                 dist[i][j] = adj[i][j];
-//                 next_hop[i][j] = j;
-//             }else if (i == j){
-//                 dist[i][j] = 0.0;
-//                 next_hop[i][j] = j;
-//             }
-//         }
-//     }
-
-//     // Floyd-Warshall
-//     for (int k = 0; k < nsize; k++){
-//         for (int i = 0; i < nsize; i++){
-//             for (int j = 0; j < nsize; j++){
-//                 double alt = dist[i][k] + dist[k][j];
-//                 if (dist[i][j] > alt){
-//                     dist[i][j] = alt;
-//                     next_hop[i][j] = next_hop[i][k];
-//                 }
-//             }
-//         }
-//     }
-
-//     //cout << "timestep=" <<this->timestep << ", time=" << this->time << ", delta_t_route=" << this->timestep_for_route_update << endl;
-
-//     return {dist, next_hop};
-// }
-
-// 効率的なはずのダイクストラ．なぜか計算速度は変わらない or わずかに遅くなった？ネットワークが大きければ効果があるのかもしれないので放置
 pair<vector<vector<double>>, vector<vector<int>>> 
   World::route_search_all(const vector<vector<double>> &adj, double infty) {
     int nsize = (int)adj.size();
     if (std::fabs(infty) < 1e-9) {
         infty = 1e15;
+    }
+
+    // 隣接リストの構築: pair<隣接ノード, 重み>
+    vector<vector<pair<int, double>>> adj_list(nsize);
+    for (int i = 0; i < nsize; i++) {
+        for (int j = 0; j < nsize; j++) {
+            if (adj[i][j] > 0.0) {
+                adj_list[i].push_back({j, adj[i][j]});
+            }
+        }
     }
 
     vector<vector<double>> dist(nsize, vector<double>(nsize, infty));
@@ -691,11 +661,9 @@ pair<vector<vector<double>>, vector<vector<int>>>
             if (visited[current]) continue;
             visited[current] = true;
             
-            // 隣接頂点の探索
-            for (int next = 0; next < nsize; next++) {
-                if (adj[current][next] <= 0.0) continue;
-                
-                double new_dist = dist[start][current] + adj[current][next];
+            // 隣接リストを使用した隣接頂点の探索
+            for (const auto& [next, weight] : adj_list[current]) {
+                double new_dist = dist[start][current] + weight;
                 if (new_dist < dist[start][next]) {
                     dist[start][next] = new_dist;
                     // 次のホップを更新
