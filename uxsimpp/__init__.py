@@ -66,7 +66,16 @@ import site
 # .pyからの機能をインポート
 from .uxsimpp import *
 
-__version__ = "0.0.1"
+import warnings
+warnings.warn(
+    "UXsim++ (uxsimpp) is deprecated and no longer maintained. "
+    "Its key features have been integrated into the C++ mode of the original UXsim (https://github.com/toruseo/UXsim). "
+    "Please migrate to UXsim.",
+    DeprecationWarning,
+    stacklevel=2,
+)
+
+__version__ = "0.0.2"
 __author__ = "Toru Seo"
 __copyright__ = "Copyright (c) 2025 Toru Seo"
 __license__ = "MIT License"
