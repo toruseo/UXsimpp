@@ -5,7 +5,7 @@
 > The key features of UXsim++ have been integrated into the C++ mode of the original [UXsim](https://github.com/toruseo/UXsim).
 > Please use UXsim instead.
 > You can activate C++ mode by doing `W = World(..., cpp=True)`.
-> Currently, UXsim C++ mode is released as a beta version, so pls install by `pip install --pre uxsim`
+> As of 2026-03-31, UXsim C++ mode is released as a beta version, so pls install by `pip install --pre uxsim`
 
 # UXsim++: Fast and simple traffic simulator for Python
 
