@@ -1,7 +1,7 @@
 [![PyPi](https://img.shields.io/pypi/v/uxsimpp.svg)](https://pypi.python.org/pypi/uxsimpp)
 
 > [!IMPORTANT]
-> **This project (UXsim++) has been terminated.**
+> **This project (UXsim++) has been terminated and succeeded to UXsim C++ mode.**
 > The key features of UXsim++ have been integrated into the C++ mode of the original [UXsim](https://github.com/toruseo/UXsim).
 > Please use UXsim instead.
 > You can activate C++ mode by doing `W = World(..., cpp=True)`.
